@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  web:
+    build: ./frontend
+  quizapi:
+    build: ./be-quiz
+  quizuser:
+    build: ./be-user
+  db:
+    image: mongo:4.0-xenial

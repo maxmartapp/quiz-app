@@ -1,0 +1,14 @@
+FROM node:17.5.0-alpine3.15 AS development
+
+RUN addgroup app && adduser -SG app app
+USER app
+
+WORKDIR /app
+COPY package*.json .
+RUN npm install
+ENV API_URL=http://api.myapp.com/
+
+COPY . .
+EXPOSE 3000
+
+CMD [ "npm", "start"]
